@@ -1,0 +1,59 @@
+.text-center {
+  text-align: center;
+  color: #323232;
+}
+
+.text-color-white-smoke {
+color: #F6F6F6;
+}
+
+.sign-in-sub-title {
+  text-align: center;
+  color: #8197A1;  
+}
+
+.labels {
+  color: #8C8C8C;
+}
+
+.text-control{
+  padding:60px;
+}
+
+.login-button{
+  background-color: #323232;
+  color: #F6F7F8;
+  font-size: 24px;
+  border: none;
+  width: 200px;
+  height: 40px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.forgot-password{
+  float: right;
+  color: #323232;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
