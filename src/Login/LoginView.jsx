@@ -37,6 +37,15 @@ class LoginView extends React.Component {
         }
     }
 
+    handleClick(e){
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+    }
+
     render() {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
@@ -55,7 +64,8 @@ class LoginView extends React.Component {
                     </div>
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
                         <label className="labels" htmlFor="password">Password</label>
-                        <input type="password" className="form-control form-control-lg" name="password" placeholder="placeholder" value={password} onChange={this.handleChange} />
+                        <input type="password" className="form-control form-control-lg" id="password" name="password" placeholder="placeholder" value={password} onChange={this.handleChange} />
+                        <i className="far fa-eye" id="togglePassword" onClick={this.handleClick}></i>
                         {submitted && !password &&
                             <div className="help-block">Password is required</div>
                         }

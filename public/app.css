@@ -63,7 +63,6 @@ color: #F6F6F6;
   transform: translate(-50%, -50%);
 }
 
-
 .add-new-button{
   background-color: #008F4C;
   color: #F6F7F8;
@@ -121,6 +120,18 @@ color: #F6F6F6;
 .forgot-password{
   float: right;
   color: #323232;
+}
+
+#password{
+  z-index: 1;  
+}
+
+form i {
+  margin-left: 515px;
+  margin-top: -24px;  
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
 }
 
 .App-header {
