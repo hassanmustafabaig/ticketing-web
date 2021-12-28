@@ -2,7 +2,8 @@ import config from '../config/config';
 import { authHeader } from '../helpers';
 
 export const deliveryService = {
-    getAll
+    getAll,
+    addDelivery
 };
 
 function getAll() {
@@ -12,6 +13,16 @@ function getAll() {
     };
 
     return fetch(config.apiUrl + '/delivery/get-all',requestOptions).then(handleResponse);
+}
+
+function addDelivery(delivery) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {  'Authorization' : authHeader().Authorization ,'Content-Type': 'application/json' },
+        body: JSON.stringify(delivery)
+    };
+
+    return fetch(`${config.apiUrl}/delivery/add`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

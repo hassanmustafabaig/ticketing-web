@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deliveryActions } from '../actions';
 import { MDBDataTable } from "mdbreact";
 
@@ -19,7 +20,7 @@ class DeliveryListView extends React.Component {
 
 
     render() {
-        const { delivery } = this.props;       
+        const { delivery } = this.props;
 
         const data = {
             columns: [
@@ -48,7 +49,7 @@ class DeliveryListView extends React.Component {
                     width: 250
                 },
                 {
-                    label: "Time To Reach Destination",
+                    label: "Time To Reach Destination (in mins)",
                     field: "timeToReachDestination",
                     sort: "asc",
                     width: 150
@@ -59,10 +60,33 @@ class DeliveryListView extends React.Component {
 
         return (
             <div>
+                <Link to="/" className="btn goto-home">Go back to Home</Link>
+                <br /><br /><br /><br />
                 {delivery.loading && <em>Loading deliveries...</em>}
                 {delivery.error && <span className="text-danger">ERROR: {delivery.error}</span>}
                 {delivery.items &&
-                    <MDBDataTable striped bordered hover data={data} />
+                   
+                   <div className="container">
+                        <div className="col-md-12">
+                            <h2 className="text-center">Online Delivery Business</h2>
+                            <h5 className="sign-in-sub-title">Search and monitor for a particular delivery</h5>
+                            <br /><br /><br /><br />
+                            <Link to="/adddelivery" className="btn add-new-button">ADD NEW</Link>
+
+                            <div id="data-table">
+                                <MDBDataTable                                    
+                                    small                                    
+                                    data={data}
+                                    noBottomColumns
+                                    displayEntries={false}
+                                    searchLabel=" "
+                                    barReverse
+                                    bordered
+                                    info={false} />
+                        </div>
+                        </div>
+                    </div>
+
                 }
             </div>
 

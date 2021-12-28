@@ -20,15 +20,18 @@ export function authentication(state = initialState, action) {
     case userConstants.LOGOUT:
       return {};
       case userConstants.GET_REFRESH_TOKEN_REQUEST:
-      return {
-        loggingIn: true
-      };
+        return {
+          loading: true,
+          user: user
+        };
     case userConstants.GET_REFRESH_TOKEN_SUCCESS:
-      return {
-        loggedIn: true       
+      return {          
+        user: user  
       };
     case userConstants.GET_REFRESH_TOKEN_FAILURE:
-      return {};
+      return { 
+        error: action.error
+      };   
     default:
       return state
   }

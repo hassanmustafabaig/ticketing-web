@@ -44,7 +44,7 @@ function getRefreshToken() {
         userService.getRefreshToken()
             .then(
                 user => { 
-                    dispatch(success());
+                    dispatch(success(user));
                 },
                 error => {
                     dispatch(failure(error.toString()));                    
@@ -53,6 +53,6 @@ function getRefreshToken() {
     };
 
     function request() { return { type: userConstants.GET_REFRESH_TOKEN_REQUEST } }
-    function success() { return { type: userConstants.GET_REFRESH_TOKEN_SUCCESS } }
+    function success() { return { type: userConstants.GET_REFRESH_TOKEN_SUCCESS} }
     function failure(error) { return { type: userConstants.GET_REFRESH_TOKEN_FAILURE, error } }
 }

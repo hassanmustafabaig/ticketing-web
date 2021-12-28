@@ -13,7 +13,13 @@ export function delivery(state = {}, action) {
     case deliveryConstants.GET_ALL_FAILURE:
       return { 
         error: action.error
-      };    
+      };
+    case deliveryConstants.ADD_REQUEST:
+      return { adding: true };
+    case deliveryConstants.ADD_SUCCESS:
+      return {};
+    case deliveryConstants.ADD_FAILURE:
+      return {};    
     default:
       return state
   }

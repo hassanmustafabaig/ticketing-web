@@ -7,6 +7,7 @@ import { alertActions, userActions } from '../actions';
 import { PrivateRoute } from '../components';
 import { TicketListView } from '../Ticket';
 import { DeliveryListView } from '../Delivery';
+import { DeliveryFormView } from '../Delivery';
 import { LoginView } from '../Login';
 import { MainView } from '../Home';
 
@@ -16,21 +17,25 @@ class App extends React.Component {
         super(props);
 
         history.listen((location, action) => {
-            // clear alert on location change
             this.props.clearAlerts();
         }); 
 
-        /*this.state = {
+       this.state = {
             timerID: "refresh-token-timer"
-        }*/
+        }
     }
 
     componentDidMount() {
-        /*this.state.timerID = setInterval(
+
+        this.state.timerID = setInterval(
             () => this.props.getRefreshToken(),
-            (60000 * 4)
-          );*/
+            (60000 * 0.5)
+          );
     }
+
+    componentWillUnmount() {
+        clearInterval(this.state.timerID);
+     }
 
     render() {
         const { alert } = this.props;      
@@ -47,6 +52,7 @@ class App extends React.Component {
                             <PrivateRoute exact path="/" component={MainView} />
                             <Route path="/login" component={LoginView} />
                             <Route path="/delivery" component={DeliveryListView} />
+                            <Route path="/adddelivery" component={DeliveryFormView} />                            
                             <Route path="/ticket" component={TicketListView} />
                             <Redirect from="*" to="/" />
                         </Switch>
