@@ -29,7 +29,7 @@ class App extends React.Component {
 
         this.state.timerID = setInterval(
             () => this.props.getRefreshToken(),
-            (60000 * 0.5)
+            (60000 * 1)
           );
     }
 
